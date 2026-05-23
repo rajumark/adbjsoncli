@@ -73,6 +73,44 @@ func runShellCommand() {
 		out.Output = parsePmListPermissions(rawOutput)
 	case isSettingsList(shellArgs):
 		out.Output = parseSettingsList(rawOutput)
+	case isDate(shellArgs):
+		out.Output = parseDate(rawOutput)
+	case isDumpsysBatterystats(shellArgs):
+		out.Output = parseDumpsysBatterystats(rawOutput)
+	case isDumpsysAlarm(shellArgs):
+		out.Output = parseDumpsysAlarm(rawOutput)
+	case isDumpsysJobscheduler(shellArgs):
+		out.Output = parseDumpsysJobscheduler(rawOutput)
+	case isDumpsysNetstats(shellArgs):
+		out.Output = parseDumpsysNetstats(rawOutput)
+	case isDumpsysUsb(shellArgs):
+		out.Output = parseDumpsysUsb(rawOutput)
+	case isDumpsysInput(shellArgs):
+		out.Output = parseDumpsysInput(rawOutput)
+	case isDumpsysGraphicsstats(shellArgs):
+		out.Output = parseDumpsysGraphicsstats(rawOutput)
+	case isDumpsysAppops(shellArgs):
+		out.Output = parseDumpsysAppops(rawOutput)
+	case isDumpsysBackup(shellArgs):
+		out.Output = parseDumpsysBackup(rawOutput)
+	case isDumpsysDropbox(shellArgs):
+		out.Output = parseDumpsysDropbox(rawOutput)
+	case isPmListLibraries(shellArgs):
+		out.Output = parsePmListLibraries(rawOutput)
+	case isCmdWifiStatus(shellArgs), isCmdWifiGetCountryCode(shellArgs), isCmdWifiListNetworks(shellArgs), isCmdWifiListScanResults(shellArgs):
+		out.Output = parseCmdWifi(rawOutput)
+	case isCmdNotificationList(shellArgs):
+		out.Output = parseCmdNotificationList(rawOutput)
+	case isCmdUimodeNight(shellArgs):
+		out.Output = parseCmdUimode(rawOutput)
+	case isBmgrEnabled(shellArgs), isBmgrListTransports(shellArgs):
+		out.Output = parseBmgr(rawOutput)
+	case isCmdNetpolicyGetRestrictBackground(shellArgs):
+		out.Output = parseCmdNetpolicy(rawOutput)
+	case isSvcPower(shellArgs):
+		out.Output = parseSvcPower(rawOutput)
+	case isCmdStatusbarGetStatusIcons(shellArgs):
+		out.Output = parseCmdStatusbarGetStatusIcons(rawOutput)
 	default:
 		out.Output = rawOutput
 	}

@@ -107,3 +107,7 @@ git push
 **Tag release** (`v*` tags) always runs CI regardless of commit message.
 
 **Rule:** Always verify CI passes before pushing a release tag.
+
+
+
+be smart,  without compromizing standard or quality,  if we run any adb command then we found that command is run successfull but from android we have not got enough data then skip that command like example if we try to get widget list from android if android device have no widget placeed on home screen then we will skip that command  , this was example, 
