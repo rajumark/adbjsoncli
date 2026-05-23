@@ -10,10 +10,8 @@ adbjson shell wm size
 **Output:**
 ```json
 {
-  "status": 0,
-  "output": {
-    "physical": "1080x2424"
-  }
+  "status": 1,
+  "output": "exit status 1"
 }
 ```
 
@@ -28,5 +26,5 @@ adb shell wm size
 
 **Output:**
 ```
-Physical size: 1080x2424
+adb: no devices/emulators found
 ```

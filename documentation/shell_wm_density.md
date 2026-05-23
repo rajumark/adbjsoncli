@@ -10,10 +10,8 @@ adbjson shell wm density
 **Output:**
 ```json
 {
-  "status": 0,
-  "output": {
-    "physical": "420"
-  }
+  "status": 1,
+  "output": "exit status 1"
 }
 ```
 
@@ -28,5 +26,5 @@ adb shell wm density
 
 **Output:**
 ```
-Physical density: 420
+adb: no devices/emulators found
 ```

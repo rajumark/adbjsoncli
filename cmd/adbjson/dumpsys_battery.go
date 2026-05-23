@@ -111,6 +111,66 @@ func runShellCommand() {
 		out.Output = parseSvcPower(rawOutput)
 	case isCmdStatusbarGetStatusIcons(shellArgs):
 		out.Output = parseCmdStatusbarGetStatusIcons(rawOutput)
+	case isDumpsysAccessibility(shellArgs):
+		out.Output = parseDumpsysAccessibility(rawOutput)
+	case isDumpsysAccount(shellArgs):
+		out.Output = parseDumpsysAccount(rawOutput)
+	case isDumpsysAppwidget(shellArgs):
+		out.Output = parseDumpsysAppwidget(rawOutput)
+	case isDumpsysAudio(shellArgs):
+		out.Output = parseDumpsysAudio(rawOutput)
+	case isDumpsysClipboard(shellArgs):
+		out.Output = parseDumpsysClipboard(rawOutput)
+	case isDumpsysConnectivity(shellArgs):
+		out.Output = parseDumpsysConnectivity(rawOutput)
+	case isDumpsysDevicePolicy(shellArgs):
+		out.Output = parseDumpsysDevicePolicy(rawOutput)
+	case isDumpsysInputMethod(shellArgs):
+		out.Output = parseDumpsysInputMethod(rawOutput)
+	case isDumpsysLocation(shellArgs):
+		out.Output = parseDumpsysLocation(rawOutput)
+	case isDumpsysMedia(shellArgs):
+		out.Output = parseDumpsysMedia(rawOutput)
+	case isDumpsysMediaSession(shellArgs):
+		out.Output = parseDumpsysMediaSession(rawOutput)
+	case isDumpsysMount(shellArgs):
+		out.Output = parseDumpsysMount(rawOutput)
+	case isDumpsysNfc(shellArgs):
+		out.Output = parseDumpsysNfc(rawOutput)
+	case isDumpsysPermission(shellArgs):
+		out.Output = parseDumpsysPermission(rawOutput)
+	case isDumpsysPrint(shellArgs):
+		out.Output = parseDumpsysPrint(rawOutput)
+	case isDumpsysProcessinfo(shellArgs):
+		out.Output = parseDumpsysProcessinfo(rawOutput)
+	case isDumpsysProcstats(shellArgs):
+		out.Output = parseDumpsysProcstats(rawOutput)
+	case isDumpsysRole(shellArgs):
+		out.Output = parseDumpsysRole(rawOutput)
+	case isDumpsysSensorservice(shellArgs):
+		out.Output = parseDumpsysSensorservice(rawOutput)
+	case isDumpsysStatusbar(shellArgs):
+		out.Output = parseDumpsysStatusbar(rawOutput)
+	case isDumpsysTelecom(shellArgs):
+		out.Output = parseDumpsysTelecom(rawOutput)
+	case isDumpsysTelephony(shellArgs):
+		out.Output = parseDumpsysTelephony(rawOutput)
+	case isDumpsysTrust(shellArgs):
+		out.Output = parseDumpsysTrust(rawOutput)
+	case isDumpsysUimode(shellArgs):
+		out.Output = parseDumpsysUimode(rawOutput)
+	case isDumpsysVibrator(shellArgs):
+		out.Output = parseDumpsysVibrator(rawOutput)
+	case isDumpsysWallpaper(shellArgs):
+		out.Output = parseDumpsysWallpaper(rawOutput)
+	case isCmdBluetoothManager(shellArgs):
+		out.Output = parseCmdBluetoothManager(rawOutput)
+	case isDumpsysConnectivityNative(shellArgs):
+		out.Output = parseDumpsysConnectivityNative(rawOutput)
+	case isDumpsysNetworkManagement(shellArgs):
+		out.Output = parseDumpsysNetworkManagement(rawOutput)
+	case isDumpsysNetpolicy(shellArgs):
+		out.Output = parseDumpsysNetpolicy(rawOutput)
 	default:
 		out.Output = rawOutput
 	}
