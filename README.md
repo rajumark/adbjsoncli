@@ -122,7 +122,7 @@ adbjson shell pm list packages -3
 
 ## Documentation
 
-- **📁 Markdown files** — [documentation/](./documentation) — per-command docs in markdown
+- **📁 Markdown files** — [docs/](./docs) — per-command and reference docs in markdown
 - **🌐 Website** — [rajumark.github.io/adbjsoncli](https://rajumark.github.io/adbjsoncli) — interactive browser with sidebar
 
 ## Development
