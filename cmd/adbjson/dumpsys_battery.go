@@ -41,6 +41,38 @@ func runShellCommand() {
 		out.Output = parseBatteryProps(rawOutput)
 	case isPmListPackages(shellArgs):
 		out.Output = parsePmListPackages(rawOutput)
+	case isGetprop(shellArgs):
+		out.Output = parseGetprop(rawOutput)
+	case isDumpsysMeminfo(shellArgs):
+		out.Output = parseDumpsysMeminfo(rawOutput)
+	case isDumpsysCpuinfo(shellArgs):
+		out.Output = parseDumpsysCpuinfo(rawOutput)
+	case isDumpsysDiskstats(shellArgs):
+		out.Output = parseDumpsysDiskstats(rawOutput)
+	case isDumpsysPower(shellArgs):
+		out.Output = parseDumpsysPower(rawOutput)
+	case isDumpsysWifi(shellArgs):
+		out.Output = parseDumpsysWifi(rawOutput)
+	case isDumpsysDeviceidle(shellArgs):
+		out.Output = parseDumpsysDeviceidle(rawOutput)
+	case isDumpsysNotification(shellArgs):
+		out.Output = parseDumpsysNotification(rawOutput)
+	case isDumpsysActivityActivities(shellArgs):
+		out.Output = parseDumpsysActivityActivities(rawOutput)
+	case isDumpsysWindowDisplays(shellArgs):
+		out.Output = parseDumpsysWindowDisplays(rawOutput)
+	case isWmSize(shellArgs):
+		out.Output = parseWmSize(rawOutput)
+	case isWmDensity(shellArgs):
+		out.Output = parseWmDensity(rawOutput)
+	case isServiceList(shellArgs):
+		out.Output = parseServiceList(rawOutput)
+	case isPmListFeatures(shellArgs):
+		out.Output = parsePmListFeatures(rawOutput)
+	case isPmListPermissions(shellArgs):
+		out.Output = parsePmListPermissions(rawOutput)
+	case isSettingsList(shellArgs):
+		out.Output = parseSettingsList(rawOutput)
 	default:
 		out.Output = rawOutput
 	}

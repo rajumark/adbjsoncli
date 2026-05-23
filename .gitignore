@@ -4,3 +4,4 @@ bin/
 *.exe
 dist/
 .idea/
+.DS_Store

@@ -21,8 +21,8 @@ adbjson shell dumpsys battery
     "Max charging current": "0",
     "Max charging voltage": "0",
     "The last voltage value sent via the battery changed broadcast": "5000",
-    "Time when the latest updated value of the Max charging current was sent via battery changed broadcast": "+3s391ms",
-    "Time when the latest updated value of the voltage was sent via battery changed broadcast": "+3s391ms",
+    "Time when the latest updated value of the Max charging current was sent via battery changed broadcast": "+3s134ms",
+    "Time when the latest updated value of the voltage was sent via battery changed broadcast": "+3s134ms",
     "USB powered": "false",
     "Wireless powered": "false",
     "health": "2",
@@ -54,7 +54,7 @@ Current Battery Service state:
   Wireless powered: false
   Dock powered: false
   Max charging current: 0
- Time when the latest updated value of the Max charging current was sent via battery changed broadcast: +3s391ms
+ Time when the latest updated value of the Max charging current was sent via battery changed broadcast: +3s134ms
   Max charging voltage: 0
   Charge counter: 10000
   status: 4
@@ -63,7 +63,7 @@ Current Battery Service state:
   level: 100
   scale: 100
   voltage: 5000
- Time when the latest updated value of the voltage was sent via battery changed broadcast: +3s391ms
+ Time when the latest updated value of the voltage was sent via battery changed broadcast: +3s134ms
  The last voltage value sent via the battery changed broadcast: 5000
   temperature: 250
   technology: Li-ion
