@@ -1,2 +1,6 @@
 bin/
 .cache/
+.DS_Store
+*.exe
+dist/
+.idea/

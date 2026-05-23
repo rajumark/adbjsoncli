@@ -1,60 +1,161 @@
-# adbjsoncli
+# adbjson
 
-Simple Go CLI that wraps `adb` commands and prints JSON.
+[![CI](https://github.com/raju/adbjsoncli/actions/workflows/ci.yml/badge.svg)](https://github.com/raju/adbjsoncli/actions/workflows/ci.yml)
+[![Go Version](https://img.shields.io/github/go-mod/go-version/raju/adbjsoncli)](https://go.dev/)
+[![Release](https://img.shields.io/github/v/release/raju/adbjsoncli)](https://github.com/raju/adbjsoncli/releases)
+[![License](https://img.shields.io/github/license/raju/adbjsoncli)](LICENSE)
 
-## Build
+`adbjson` is a Go CLI that wraps `adb` commands and prints structured JSON output.
 
-```zsh
-cd /Users/raju/Documents/allproj/adbjsoncli
+Use the exact same `adb` command structure — just replace `adb` with `adbjson`.
+
+```bash
+adb version          →  adbjson version
+adb shell dumpsys battery  →  adbjson shell dumpsys battery
+adb shell pm list packages →  adbjson shell pm list packages
+```
+
+## Installation
+
+### Download (pre-built binary)
+
+Download the latest binary for your platform from the [releases page](https://github.com/raju/adbjsoncli/releases).
+
+| Platform | Download |
+|---|---|
+| macOS (Intel) | `adbjson-darwin-amd64` |
+| macOS (Apple Silicon) | `adbjson-darwin-arm64` |
+| Linux (x86_64) | `adbjson-linux-amd64` |
+| Linux (ARM64) | `adbjson-linux-arm64` |
+| Windows (x86_64) | `adbjson-windows-amd64.exe` |
+
+```bash
+# macOS / Linux
+chmod +x adbjson-darwin-arm64
+sudo mv adbjson-darwin-arm64 /usr/local/bin/adbjson
+
+# Windows (PowerShell)
+# Rename to adbjson.exe and add to PATH
+```
+
+### Build from source
+
+```bash
+git clone https://github.com/raju/adbjsoncli.git
+cd adbjsoncli
 ./scripts/build.sh
 ```
 
-The binary is created here:
+The binary is created at `bin/adbjson`.
 
-```text
-/Users/raju/Documents/allproj/adbjsoncli/bin/adbjson
+### Go install
+
+```bash
+go install github.com/raju/adbjsoncli/cmd/adbjson@latest
 ```
 
-## Run
+## Usage
 
-After building, run:
-
-```zsh
+```bash
 adbjson version
+adbjson shell dumpsys battery
+adbjson shell pm list packages
 ```
 
-Example output:
+### Output format
 
 ```json
 {
-  "command": "version",
-  "adb_path": "/Users/raju/Desktop/tools/platform-tools/adb",
-  "version": "37.0.0-14910828",
-  "raw_output": "Android Debug Bridge version 1.0.41...",
-  "successful": true
+  "status": 0,
+  "output": {}
 }
 ```
 
-The build folder is added to `~/.zshrc`, so new Terminal windows can run `adbjson`
-from any path. In the current Terminal, run this once if needed:
+- `status`: `0` for success, `1` for error
+- `output`: parsed JSON data or raw fallback
 
-```zsh
-source ~/.zshrc
+### Examples
+
+```bash
+adbjson version
 ```
 
-## Add More Commands
-
-Add a new Go file inside:
-
-```text
-/Users/raju/Documents/allproj/adbjsoncli/cmd/adbjson
+```json
+{
+  "status": 0,
+  "output": {
+    "version": "37.0.0-14910828"
+  }
+}
 ```
 
-For example, create `devices.go` with a `runDevicesCommand()` function, then add a new case in `main.go`:
-
-```go
-case "devices":
-	runDevicesCommand()
+```bash
+adbjson shell dumpsys battery
 ```
 
-Keep each command in its own file so the project stays easy to grow.
+```json
+{
+  "status": 0,
+  "output": {
+    "level": "100",
+    "status": "4",
+    "temperature": "250",
+    "technology": "Li-ion"
+  }
+}
+```
+
+```bash
+adbjson shell pm list packages -3
+```
+
+```json
+{
+  "status": 0,
+  "output": [
+    {
+      "package_name": "com.example.app"
+    }
+  ]
+}
+```
+
+## Documentation
+
+Per-command documentation (JSON vs raw output) is available in the [documentation](./documentation) folder.
+
+## Development
+
+### Prerequisites
+
+- Go 1.26+
+- [adb](https://developer.android.com/studio/command-line/adb) (Android SDK platform-tools)
+
+### Build
+
+```bash
+./scripts/build.sh
+```
+
+Cross-compile for a specific platform:
+
+```bash
+GOOS=linux GOARCH=arm64 ./scripts/build.sh
+```
+
+### Add a new command
+
+1. Create a new Go file in `cmd/adbjson/` named after the adb subcommand (e.g., `dumpsys_meminfo.go`)
+2. Implement the parsing logic
+3. Register it in the shell dispatch inside `dumpsys_battery.go`
+4. Run `./scripts/build.sh` to verify
+
+### Regenerate documentation
+
+```bash
+./scripts/gen_docs.sh
+```
+
+## Project guidelines
+
+See [project_code_guidline.md](./project_code_guidline.md) for project conventions.

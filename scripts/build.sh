@@ -10,6 +10,17 @@ mkdir -p "$CACHE_DIR"
 
 cd "$ROOT_DIR"
 export GOCACHE="$CACHE_DIR"
-go build -o "$BIN_DIR/adbjson" ./cmd/adbjson
 
-echo "Built $BIN_DIR/adbjson"
+GOOS="${GOOS:-$(go env GOOS)}"
+GOARCH="${GOARCH:-$(go env GOARCH)}"
+output="adbjson"
+
+if [ "$GOOS" = "windows" ]; then
+  output="${output}.exe"
+fi
+
+go build \
+  -o "$BIN_DIR/$output" \
+  ./cmd/adbjson
+
+echo "Built $BIN_DIR/$output ($GOOS/$GOARCH)"
