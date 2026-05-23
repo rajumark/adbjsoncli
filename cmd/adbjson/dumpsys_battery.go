@@ -171,6 +171,28 @@ func runShellCommand() {
 		out.Output = parseDumpsysNetworkManagement(rawOutput)
 	case isDumpsysNetpolicy(shellArgs):
 		out.Output = parseDumpsysNetpolicy(rawOutput)
+	case isCmdConnectivityAirplaneMode(shellArgs):
+		out.Output = parseCmdConnectivityAirplaneMode(rawOutput)
+	case isDumpsysDeviceConfig(shellArgs):
+		out.Output = parseDumpsysDeviceConfig(rawOutput)
+	case isDumpsysShortcut(shellArgs):
+		out.Output = parseDumpsysShortcut(rawOutput)
+	case isDumpsysSettings(shellArgs):
+		out.Output = parseDumpsysSettings(rawOutput)
+	case isDumpsysNetworkTimeUpdateService(shellArgs):
+		out.Output = parseDumpsysNetworkTimeUpdateService(rawOutput)
+	case isDumpsysSafetyCenter(shellArgs):
+		out.Output = parseDumpsysSafetyCenter(rawOutput)
+	case isDumpsysVoiceinteraction(shellArgs):
+		out.Output = parseDumpsysVoiceinteraction(rawOutput)
+	case isDumpsysWebviewupdate(shellArgs):
+		out.Output = parseDumpsysWebviewupdate(rawOutput)
+	case isDumpsysNetworkScore(shellArgs):
+		out.Output = parseDumpsysNetworkScore(rawOutput)
+	case isDumpsysTranslation(shellArgs):
+		out.Output = parseDumpsysTranslation(rawOutput)
+	case isDumpsysSearch(shellArgs):
+		out.Output = parseDumpsysSearch(rawOutput)
 	default:
 		out.Output = rawOutput
 	}

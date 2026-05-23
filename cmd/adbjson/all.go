@@ -89,5 +89,16 @@ func parsedShellCommands() []cmdEntry {
 		{Command: "adbjson shell dumpsys connectivity_native", Parsed: true},
 		{Command: "adbjson shell dumpsys network_management", Parsed: true},
 		{Command: "adbjson shell dumpsys netpolicy", Parsed: true},
+		{Command: "adbjson shell cmd connectivity airplane-mode", Parsed: true},
+		{Command: "adbjson shell dumpsys device_config", Parsed: true},
+		{Command: "adbjson shell dumpsys shortcut", Parsed: true},
+		{Command: "adbjson shell dumpsys settings", Parsed: true},
+		{Command: "adbjson shell dumpsys network_time_update_service", Parsed: true},
+		{Command: "adbjson shell dumpsys safety_center", Parsed: true},
+		{Command: "adbjson shell dumpsys voiceinteraction", Parsed: true},
+		{Command: "adbjson shell dumpsys webviewupdate", Parsed: true},
+		{Command: "adbjson shell dumpsys network_score", Parsed: true},
+		{Command: "adbjson shell dumpsys translation", Parsed: true},
+		{Command: "adbjson shell dumpsys search", Parsed: true},
 	}
 }
