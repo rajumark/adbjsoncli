@@ -122,7 +122,8 @@ adbjson shell pm list packages -3
 
 ## Documentation
 
-Per-command documentation (JSON vs raw output) is available in the [documentation](./documentation) folder.
+- **📁 Markdown files** — [documentation/](./documentation) — per-command docs in markdown
+- **🌐 Website** — [rajumark.github.io/adbjsoncli](https://rajumark.github.io/adbjsoncli) — interactive browser with sidebar
 
 ## Development
 

@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>adbjson documentation</title>
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --sidebar-w: 280px;
+  --bg: #0d1117;
+  --sidebar-bg: #161b22;
+  --border: #30363d;
+  --text: #e6edf3;
+  --text-muted: #8b949e;
+  --accent: #58a6ff;
+  --hover: #1c2128;
+  --active: #1f6feb22;
+  --code-bg: #161b22;
+  --card-bg: #161b22;
+}
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.sidebar {
+  width: var(--sidebar-w);
+  min-width: var(--sidebar-w);
+  background: var(--sidebar-bg);
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.sidebar-header {
+  padding: 20px 16px 12px;
+  border-bottom: 1px solid var(--border);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+.sidebar-header span { color: var(--accent); }
+.sidebar-search {
+  padding: 10px 12px;
+  flex-shrink: 0;
+}
+.sidebar-search input {
+  width: 100%;
+  padding: 7px 10px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+  font-size: 13px;
+  outline: none;
+}
+.sidebar-search input:focus { border-color: var(--accent); }
+.sidebar-nav {
+  flex: 1;
+  overflow-y: auto;
+  padding: 6px 0;
+}
+.sidebar-nav::-webkit-scrollbar { width: 6px; }
+.sidebar-nav::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+.nav-item {
+  display: block;
+  padding: 7px 16px;
+  font-size: 13px;
+  color: var(--text-muted);
+  cursor: pointer;
+  text-decoration: none;
+  border-left: 3px solid transparent;
+  transition: all .15s;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.nav-item:hover { background: var(--hover); color: var(--text); }
+.nav-item.active {
+  color: var(--text);
+  background: var(--active);
+  border-left-color: var(--accent);
+}
+.nav-item .count {
+  float: right;
+  font-size: 11px;
+  color: var(--text-muted);
+  opacity: .6;
+}
+
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.main-header {
+  padding: 16px 32px;
+  border-bottom: 1px solid var(--border);
+  font-size: 13px;
+  color: var(--text-muted);
+  flex-shrink: 0;
+}
+.main-header strong { color: var(--text); }
+.main-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 32px;
+  max-width: 900px;
+}
+.main-content::-webkit-scrollbar { width: 8px; }
+.main-content::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+
+.placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: var(--text-muted);
+  font-size: 15px;
+}
+.placeholder strong { display: block; font-size: 22px; color: var(--text); margin-bottom: 6px; }
+
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: var(--text-muted);
+  font-size: 14px;
+}
+.spinner {
+  width: 20px; height: 20px;
+  border: 2px solid var(--border);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin .6s linear infinite;
+  margin-right: 10px;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.error-box {
+  background: #3d1111;
+  border: 1px solid #f8514966;
+  border-radius: 6px;
+  padding: 16px 20px;
+  color: #f85149;
+  font-size: 13px;
+}
+
+.content-loading { display: flex; align-items: center; padding: 32px; color: var(--text-muted); gap: 10px; font-size: 14px; }
+
+article { line-height: 1.7; font-size: 15px; }
+article h1 { font-size: 26px; font-weight: 600; margin: 0 0 20px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+article h2 { font-size: 20px; font-weight: 600; margin: 24px 0 12px; }
+article h3 { font-size: 16px; font-weight: 600; margin: 20px 0 10px; }
+article p { margin: 0 0 14px; }
+article a { color: var(--accent); text-decoration: none; }
+article a:hover { text-decoration: underline; }
+article code {
+  font-family: "SF Mono", ui-monospace, monospace;
+  font-size: 13px;
+  background: var(--code-bg);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+article pre {
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 16px;
+  overflow-x: auto;
+  margin: 0 0 16px;
+  position: relative;
+}
+article pre code {
+  background: none;
+  padding: 0;
+  border-radius: 0;
+  font-size: 13px;
+  line-height: 1.5;
+}
+article pre .copy-btn {
+  position: absolute;
+  top: 8px; right: 8px;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity .15s;
+}
+article pre:hover .copy-btn { opacity: 1; }
+article pre .copy-btn:hover { background: var(--hover); color: var(--text); }
+article hr { border: none; border-top: 1px solid var(--border); margin: 24px 0; }
+article table { width: 100%; border-collapse: collapse; margin: 0 0 16px; font-size: 13px; }
+article th, article td { border: 1px solid var(--border); padding: 8px 12px; text-align: left; }
+article th { background: var(--code-bg); font-weight: 600; }
+article tr:nth-child(even) td { background: #0d1117; }
+article ul, article ol { margin: 0 0 14px; padding-left: 24px; }
+article li { margin: 4px 0; }
+article blockquote {
+  border-left: 3px solid var(--accent);
+  padding: 8px 16px;
+  margin: 0 0 14px;
+  color: var(--text-muted);
+  background: var(--code-bg);
+  border-radius: 0 4px 4px 0;
+}
+
+@media (max-width: 768px) {
+  body { flex-direction: column; }
+  .sidebar { width: 100%; min-width: 0; max-height: 200px; }
+  .main-content { padding: 20px; }
+}
+</style>
+</head>
+<body>
+
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-header">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+    <span>adbjson</span> docs
+  </div>
+  <div class="sidebar-search">
+    <input type="text" id="searchInput" placeholder="Filter files..." oninput="filterFiles()">
+  </div>
+  <nav class="sidebar-nav" id="fileList"></nav>
+</div>
+
+<div class="main">
+  <div class="main-header" id="breadcrumb">
+    <span id="breadcrumbText">Select a file from the sidebar</span>
+  </div>
+  <div class="main-content" id="content">
+    <div class="placeholder">
+      <div>
+        <strong>📄 adbjson docs</strong>
+        Select a file from the sidebar to view its content
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const REPO = 'rajumark/adbjsoncli';
+const BRANCH = 'main';
+const API_URL = `https://api.github.com/repos/${REPO}/contents/documentation`;
+const RAW_URL = `https://raw.githubusercontent.com/${REPO}/${BRANCH}/documentation`;
+
+let files = [];
+let fileCache = {};
+
+async function fetchFileList() {
+  const listEl = document.getElementById('fileList');
+  listEl.innerHTML = '<div class="loading"><div class="spinner"></div>Loading files...</div>';
+  try {
+    const res = await fetch(API_URL);
+    if (!res.ok) throw new Error(`GitHub API returned ${res.status}`);
+    const data = await res.json();
+    files = data.filter(f => f.name.endsWith('.md') && f.name !== 'README.md');
+    renderSidebar(files);
+  } catch (err) {
+    listEl.innerHTML = `<div class="error-box">Failed to load file list: ${err.message}</div>`;
+  }
+}
+
+function renderSidebar(list) {
+  const el = document.getElementById('fileList');
+  if (!list.length) {
+    el.innerHTML = '<div style="padding:16px;color:var(--text-muted);font-size:13px">No documentation files found.</div>';
+    return;
+  }
+  el.innerHTML = list.map(f =>
+    `<a class="nav-item" href="#" data-file="${f.name}" onclick="loadFile('${f.name}');return false">${displayName(f.name)}</a>`
+  ).join('');
+}
+
+function displayName(name) {
+  return name.replace(/\.md$/, '').replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+}
+
+function filterFiles() {
+  const q = document.getElementById('searchInput').value.toLowerCase();
+  const filtered = q ? files.filter(f => f.name.toLowerCase().includes(q) || displayName(f.name).toLowerCase().includes(q)) : files;
+  renderSidebar(filtered);
+}
+
+async function loadFile(filename) {
+  document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
+  const activeEl = document.querySelector(`.nav-item[data-file="${filename}"]`);
+  if (activeEl) activeEl.classList.add('active');
+
+  document.getElementById('breadcrumbText').textContent = displayName(filename);
+  const contentEl = document.getElementById('content');
+  contentEl.innerHTML = '<div class="content-loading"><div class="spinner"></div>Loading...</div>';
+
+  if (fileCache[filename]) {
+    renderContent(contentEl, fileCache[filename]);
+    return;
+  }
+
+  try {
+    const res = await fetch(`${RAW_URL}/${filename}`);
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const md = await res.text();
+    fileCache[filename] = md;
+    renderContent(contentEl, md);
+  } catch (err) {
+    contentEl.innerHTML = `<div class="error-box">Failed to load ${filename}: ${err.message}</div>`;
+  }
+}
+
+function renderContent(el, md) {
+  const html = marked.parse(md, { breaks: true });
+  el.innerHTML = `<article>${html}</article>`;
+  el.querySelectorAll('pre').forEach(pre => {
+    const btn = document.createElement('button');
+    btn.className = 'copy-btn';
+    btn.textContent = 'Copy';
+    btn.onclick = () => {
+      const code = pre.querySelector('code');
+      navigator.clipboard.writeText(code ? code.textContent : pre.textContent).then(() => {
+        btn.textContent = 'Copied!';
+        setTimeout(() => { btn.textContent = 'Copy'; }, 1500);
+      });
+    };
+    pre.appendChild(btn);
+  });
+}
+
+fetchFileList();
+</script>
+</body>
+</html>

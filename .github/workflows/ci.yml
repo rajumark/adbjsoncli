@@ -2,6 +2,9 @@ name: CI
 
 on: [push]
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 permissions:
   contents: write
 
@@ -14,7 +17,8 @@ jobs:
       - uses: actions/setup-go@v5
         with:
           go-version-file: go.mod
-          cache: true
+          cache-dependency-path: go.sum
+      - run: go mod tidy
       - run: go vet ./...
 
   build:
@@ -28,7 +32,8 @@ jobs:
       - uses: actions/setup-go@v5
         with:
           go-version-file: go.mod
-          cache: true
+          cache-dependency-path: go.sum
+      - run: go mod tidy
       - run: go build -o adbjson ./cmd/adbjson
         shell: bash
       - uses: actions/upload-artifact@v4
@@ -45,7 +50,8 @@ jobs:
       - uses: actions/setup-go@v5
         with:
           go-version-file: go.mod
-          cache: true
+          cache-dependency-path: go.sum
+      - run: go mod tidy
 
       - name: Build all platforms
         run: |
@@ -66,5 +72,3 @@ jobs:
         with:
           files: dist/*
           generate_release_notes: true
-
-
