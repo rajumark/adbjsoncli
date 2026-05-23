@@ -118,88 +118,54 @@ func runShellCommand() {
 		out.Output = parseSvcPower(rawOutput)
 	case isCmdStatusbarGetStatusIcons(shellArgs):
 		out.Output = parseCmdStatusbarGetStatusIcons(rawOutput)
-	case isDumpsysAccessibility(shellArgs):
-		out.Output = parseDumpsysAccessibility(rawOutput)
-	case isDumpsysAccount(shellArgs):
-		out.Output = parseDumpsysAccount(rawOutput)
-	case isDumpsysAppwidget(shellArgs):
-		out.Output = parseDumpsysAppwidget(rawOutput)
-	case isDumpsysAudio(shellArgs):
-		out.Output = parseDumpsysAudio(rawOutput)
-	case isDumpsysClipboard(shellArgs):
-		out.Output = parseDumpsysClipboard(rawOutput)
-	case isDumpsysConnectivity(shellArgs):
-		out.Output = parseDumpsysConnectivity(rawOutput)
-	case isDumpsysDevicePolicy(shellArgs):
-		out.Output = parseDumpsysDevicePolicy(rawOutput)
-	case isDumpsysInputMethod(shellArgs):
-		out.Output = parseDumpsysInputMethod(rawOutput)
-	case isDumpsysLocation(shellArgs):
-		out.Output = parseDumpsysLocation(rawOutput)
-	case isDumpsysMedia(shellArgs):
-		out.Output = parseDumpsysMedia(rawOutput)
-	case isDumpsysMediaSession(shellArgs):
-		out.Output = parseDumpsysMediaSession(rawOutput)
-	case isDumpsysMount(shellArgs):
-		out.Output = parseDumpsysMount(rawOutput)
-	case isDumpsysNfc(shellArgs):
-		out.Output = parseDumpsysNfc(rawOutput)
-	case isDumpsysPermission(shellArgs):
-		out.Output = parseDumpsysPermission(rawOutput)
-	case isDumpsysPrint(shellArgs):
-		out.Output = parseDumpsysPrint(rawOutput)
-	case isDumpsysProcessinfo(shellArgs):
-		out.Output = parseDumpsysProcessinfo(rawOutput)
-	case isDumpsysProcstats(shellArgs):
-		out.Output = parseDumpsysProcstats(rawOutput)
-	case isDumpsysRole(shellArgs):
-		out.Output = parseDumpsysRole(rawOutput)
-	case isDumpsysSensorservice(shellArgs):
-		out.Output = parseDumpsysSensorservice(rawOutput)
-	case isDumpsysStatusbar(shellArgs):
-		out.Output = parseDumpsysStatusbar(rawOutput)
-	case isDumpsysTelecom(shellArgs):
-		out.Output = parseDumpsysTelecom(rawOutput)
-	case isDumpsysTelephony(shellArgs):
-		out.Output = parseDumpsysTelephony(rawOutput)
-	case isDumpsysTrust(shellArgs):
-		out.Output = parseDumpsysTrust(rawOutput)
-	case isDumpsysUimode(shellArgs):
-		out.Output = parseDumpsysUimode(rawOutput)
-	case isDumpsysVibrator(shellArgs):
-		out.Output = parseDumpsysVibrator(rawOutput)
-	case isDumpsysWallpaper(shellArgs):
-		out.Output = parseDumpsysWallpaper(rawOutput)
+	case isColonValueDumpsys(shellArgs):
+		out.Output = parseColonValueLines(rawOutput)
 	case isCmdBluetoothManager(shellArgs):
 		out.Output = parseCmdBluetoothManager(rawOutput)
-	case isDumpsysConnectivityNative(shellArgs):
-		out.Output = parseDumpsysConnectivityNative(rawOutput)
-	case isDumpsysNetworkManagement(shellArgs):
-		out.Output = parseDumpsysNetworkManagement(rawOutput)
-	case isDumpsysNetpolicy(shellArgs):
-		out.Output = parseDumpsysNetpolicy(rawOutput)
 	case isCmdConnectivityAirplaneMode(shellArgs):
 		out.Output = parseCmdConnectivityAirplaneMode(rawOutput)
 	case isDumpsysDeviceConfig(shellArgs):
 		out.Output = parseDumpsysDeviceConfig(rawOutput)
-	case isDumpsysShortcut(shellArgs):
-		out.Output = parseDumpsysShortcut(rawOutput)
-	case isDumpsysSettings(shellArgs):
-		out.Output = parseDumpsysSettings(rawOutput)
-	case isDumpsysNetworkTimeUpdateService(shellArgs):
-		out.Output = parseDumpsysNetworkTimeUpdateService(rawOutput)
-	case isDumpsysSafetyCenter(shellArgs):
-		out.Output = parseDumpsysSafetyCenter(rawOutput)
-	case isDumpsysVoiceinteraction(shellArgs):
-		out.Output = parseDumpsysVoiceinteraction(rawOutput)
-	case isDumpsysWebviewupdate(shellArgs):
-		out.Output = parseDumpsysWebviewupdate(rawOutput)
-	case isDumpsysNetworkScore(shellArgs):
-		out.Output = parseDumpsysNetworkScore(rawOutput)
-	case isDumpsysTranslation(shellArgs):
-		out.Output = parseDumpsysTranslation(rawOutput)
-	case isDumpsysSearch(shellArgs):
-		out.Output = parseDumpsysSearch(rawOutput)
+	case isUptime(shellArgs):
+		out.Output = parseUptime(rawOutput)
+	case isUname(shellArgs):
+		out.Output = parseUname(rawOutput)
+	case isId(shellArgs):
+		out.Output = parseId(rawOutput)
+	case isDf(shellArgs):
+		out.Output = parseDf(rawOutput)
+	case isFree(shellArgs):
+		out.Output = parseFree(rawOutput)
+	case isPs(shellArgs):
+		out.Output = parsePs(rawOutput)
+	case isPrintenv(shellArgs):
+		out.Output = parsePrintenv(rawOutput)
+	case isIfconfig(shellArgs):
+		out.Output = parseIfconfig(rawOutput)
+	case isNetstat(shellArgs):
+		out.Output = parseNetstat(rawOutput)
+	case isVmstat(shellArgs):
+		out.Output = parseVmstat(rawOutput)
+	case isGroups(shellArgs):
+		out.Output = parseGroups(rawOutput)
+	case isWhoami(shellArgs):
+		out.Output = parseWhoami(rawOutput)
+	case isEnv(shellArgs):
+		out.Output = parseEnv(rawOutput)
+	case isLs(shellArgs):
+		out.Output = parseLs(rawOutput)
+	case isCatProcVersion(shellArgs):
+		out.Output = parseCatProcVersion(rawOutput)
+	case isCatProcCpuinfo(shellArgs):
+		out.Output = parseCatProcCpuinfo(rawOutput)
+	case isGetpropSingle(shellArgs):
+		out.Output = parseGetpropSingle(rawOutput)
+	case isSettingsGet(shellArgs):
+		out.Output = parseSettingsGet(rawOutput)
+	case isCmdBatteryReset(shellArgs):
+		out.Output = parseCmdBatteryReset(rawOutput)
+	case isCmdDeviceidle(shellArgs):
+		out.Output = parseCmdDeviceidle(rawOutput)
 	default:
 		out.Output = rawOutput
 	}
