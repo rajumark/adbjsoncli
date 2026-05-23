@@ -10,8 +10,108 @@ adbjson shell pm list features
 **Output:**
 ```json
 {
-  "status": 1,
-  "output": "exit status 1"
+  "status": 0,
+  "output": [
+    "reqGlEsVersion=0x30000",
+    "android.hardware.audio.output",
+    "android.hardware.bluetooth",
+    "android.hardware.bluetooth_le",
+    "android.hardware.camera",
+    "android.hardware.camera.any",
+    "android.hardware.camera.autofocus",
+    "android.hardware.camera.capability.manual_post_processing",
+    "android.hardware.camera.capability.manual_sensor",
+    "android.hardware.camera.capability.raw",
+    "android.hardware.camera.concurrent",
+    "android.hardware.camera.flash",
+    "android.hardware.camera.front",
+    "android.hardware.camera.level.full",
+    "android.hardware.context_hub",
+    "android.hardware.faketouch",
+    "android.hardware.fingerprint",
+    "android.hardware.hardware_keystore=500",
+    "android.hardware.identity_credential=202301",
+    "android.hardware.keystore.app_attest_key",
+    "android.hardware.location",
+    "android.hardware.location.gps",
+    "android.hardware.location.network",
+    "android.hardware.microphone",
+    "android.hardware.ram.normal",
+    "android.hardware.reboot_escrow",
+    "android.hardware.screen.landscape",
+    "android.hardware.screen.portrait",
+    "android.hardware.security.model.compatible",
+    "android.hardware.sensor.accelerometer",
+    "android.hardware.sensor.ambient_temperature",
+    "android.hardware.sensor.barometer",
+    "android.hardware.sensor.compass",
+    "android.hardware.sensor.gyroscope",
+    "android.hardware.sensor.light",
+    "android.hardware.sensor.proximity",
+    "android.hardware.sensor.relative_humidity",
+    "android.hardware.telephony",
+    "android.hardware.telephony.calling",
+    "android.hardware.telephony.data",
+    "android.hardware.telephony.gsm",
+    "android.hardware.telephony.ims",
+    "android.hardware.telephony.messaging",
+    "android.hardware.telephony.radio.access",
+    "android.hardware.telephony.subscription",
+    "android.hardware.thread_network",
+    "android.hardware.touchscreen",
+    "android.hardware.touchscreen.multitouch",
+    "android.hardware.touchscreen.multitouch.distinct",
+    "android.hardware.touchscreen.multitouch.jazzhand",
+    "android.hardware.uwb",
+    "android.hardware.vulkan.compute",
+    "android.hardware.vulkan.level=1",
+    "android.hardware.vulkan.version=4206592",
+    "android.hardware.wifi",
+    "android.hardware.wifi.direct",
+    "android.hardware.wifi.passpoint",
+    "android.software.activities_on_secondary_displays",
+    "android.software.adoptable_storage",
+    "android.software.app_enumeration",
+    "android.software.app_widgets",
+    "android.software.autofill",
+    "android.software.backup",
+    "android.software.cant_save_state",
+    "android.software.companion_device_setup",
+    "android.software.controls",
+    "android.software.credentials",
+    "android.software.cts",
+    "android.software.device_admin",
+    "android.software.device_lock",
+    "android.software.erofs",
+    "android.software.file_based_encryption",
+    "android.software.home_screen",
+    "android.software.incremental_delivery=2",
+    "android.software.input_methods",
+    "android.software.ipsec_tunnel_migration",
+    "android.software.ipsec_tunnels",
+    "android.software.live_wallpaper",
+    "android.software.managed_users",
+    "android.software.midi",
+    "android.software.opengles.deqp.level=132776705",
+    "android.software.picture_in_picture",
+    "android.software.print",
+    "android.software.secure_lock_screen",
+    "android.software.securely_removes_users",
+    "android.software.telecom",
+    "android.software.verified_boot",
+    "android.software.voice_recognizers",
+    "android.software.vulkan.deqp.level=132776705",
+    "android.software.webview",
+    "android.software.window_magnification",
+    "com.google.android.apps.dialer.SUPPORTED",
+    "com.google.android.feature.EXCHANGE_6_2",
+    "com.google.android.feature.GOOGLE_BUILD",
+    "com.google.android.feature.GOOGLE_EXPERIENCE",
+    "com.google.android.feature.PERSONAL_SAFETY",
+    "com.google.android.feature.WELLBEING",
+    "com.google.android.feature.XR_PROJECTED",
+    "com.google.android.mainline.patchlevel.2"
+  ]
 }
 ```
 
@@ -26,5 +126,103 @@ adb shell pm list features
 
 **Output:**
 ```
-adb: no devices/emulators found
+feature:reqGlEsVersion=0x30000
+feature:android.hardware.audio.output
+feature:android.hardware.bluetooth
+feature:android.hardware.bluetooth_le
+feature:android.hardware.camera
+feature:android.hardware.camera.any
+feature:android.hardware.camera.autofocus
+feature:android.hardware.camera.capability.manual_post_processing
+feature:android.hardware.camera.capability.manual_sensor
+feature:android.hardware.camera.capability.raw
+feature:android.hardware.camera.concurrent
+feature:android.hardware.camera.flash
+feature:android.hardware.camera.front
+feature:android.hardware.camera.level.full
+feature:android.hardware.context_hub
+feature:android.hardware.faketouch
+feature:android.hardware.fingerprint
+feature:android.hardware.hardware_keystore=500
+feature:android.hardware.identity_credential=202301
+feature:android.hardware.keystore.app_attest_key
+feature:android.hardware.location
+feature:android.hardware.location.gps
+feature:android.hardware.location.network
+feature:android.hardware.microphone
+feature:android.hardware.ram.normal
+feature:android.hardware.reboot_escrow
+feature:android.hardware.screen.landscape
+feature:android.hardware.screen.portrait
+feature:android.hardware.security.model.compatible
+feature:android.hardware.sensor.accelerometer
+feature:android.hardware.sensor.ambient_temperature
+feature:android.hardware.sensor.barometer
+feature:android.hardware.sensor.compass
+feature:android.hardware.sensor.gyroscope
+feature:android.hardware.sensor.light
+feature:android.hardware.sensor.proximity
+feature:android.hardware.sensor.relative_humidity
+feature:android.hardware.telephony
+feature:android.hardware.telephony.calling
+feature:android.hardware.telephony.data
+feature:android.hardware.telephony.gsm
+feature:android.hardware.telephony.ims
+feature:android.hardware.telephony.messaging
+feature:android.hardware.telephony.radio.access
+feature:android.hardware.telephony.subscription
+feature:android.hardware.thread_network
+feature:android.hardware.touchscreen
+feature:android.hardware.touchscreen.multitouch
+feature:android.hardware.touchscreen.multitouch.distinct
+feature:android.hardware.touchscreen.multitouch.jazzhand
+feature:android.hardware.uwb
+feature:android.hardware.vulkan.compute
+feature:android.hardware.vulkan.level=1
+feature:android.hardware.vulkan.version=4206592
+feature:android.hardware.wifi
+feature:android.hardware.wifi.direct
+feature:android.hardware.wifi.passpoint
+feature:android.software.activities_on_secondary_displays
+feature:android.software.adoptable_storage
+feature:android.software.app_enumeration
+feature:android.software.app_widgets
+feature:android.software.autofill
+feature:android.software.backup
+feature:android.software.cant_save_state
+feature:android.software.companion_device_setup
+feature:android.software.controls
+feature:android.software.credentials
+feature:android.software.cts
+feature:android.software.device_admin
+feature:android.software.device_lock
+feature:android.software.erofs
+feature:android.software.file_based_encryption
+feature:android.software.home_screen
+feature:android.software.incremental_delivery=2
+feature:android.software.input_methods
+feature:android.software.ipsec_tunnel_migration
+feature:android.software.ipsec_tunnels
+feature:android.software.live_wallpaper
+feature:android.software.managed_users
+feature:android.software.midi
+feature:android.software.opengles.deqp.level=132776705
+feature:android.software.picture_in_picture
+feature:android.software.print
+feature:android.software.secure_lock_screen
+feature:android.software.securely_removes_users
+feature:android.software.telecom
+feature:android.software.verified_boot
+feature:android.software.voice_recognizers
+feature:android.software.vulkan.deqp.level=132776705
+feature:android.software.webview
+feature:android.software.window_magnification
+feature:com.google.android.apps.dialer.SUPPORTED
+feature:com.google.android.feature.EXCHANGE_6_2
+feature:com.google.android.feature.GOOGLE_BUILD
+feature:com.google.android.feature.GOOGLE_EXPERIENCE
+feature:com.google.android.feature.PERSONAL_SAFETY
+feature:com.google.android.feature.WELLBEING
+feature:com.google.android.feature.XR_PROJECTED
+feature:com.google.android.mainline.patchlevel.2
 ```

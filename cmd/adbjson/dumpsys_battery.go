@@ -33,6 +33,13 @@ func runShellCommand() {
 		})
 		os.Exit(1)
 	}
+	if strings.Contains(rawOutput, "no devices/emulators found") || strings.Contains(rawOutput, "device not found") || strings.Contains(rawOutput, "device offline") {
+		printJSON(cliOutput{
+			Status: 1,
+			Output: rawOutput,
+		})
+		os.Exit(1)
+	}
 
 	out := cliOutput{Status: 0}
 

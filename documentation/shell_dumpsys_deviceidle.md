@@ -10,8 +10,32 @@ adbjson shell dumpsys deviceidle
 **Output:**
 ```json
 {
-  "status": 1,
-  "output": "exit status 1"
+  "status": 0,
+  "output": {
+    "mCharging": "false",
+    "mForceIdle": "false",
+    "mInactiveTimeout": "+15s0ms",
+    "mIsDesktopClosedState": "false",
+    "mLastMotionEventElapsed": "0",
+    "mLightEnabled": "true  mDeepEnabled=true",
+    "mMotionActive": "false",
+    "mMotionListener.activatedTimeElapsed": "0",
+    "mNetworkConnected": "false",
+    "mNotMoving": "false",
+    "mScreenLocked": "false",
+    "mScreenOn": "true",
+    "mState": "ACTIVE mLightState=ACTIVE",
+    "mUseMotionSensor": "true mMotionSensor=null",
+    "max_idle_pending_to": "+10m0s0ms",
+    "max_idle_to": "+6h0m0s0ms",
+    "max_temp_app_allowlist_duration_ms": "+5m0s0ms",
+    "min_deep_maintenance_time": "+30s0ms",
+    "min_light_maintenance_time": "+5s0ms",
+    "min_time_to_alarm": "+1h0m0s0ms",
+    "mms_temp_app_allowlist_duration_ms": "+1m0s0ms",
+    "motion_inactive_to": "+30s0ms",
+    "motion_inactive_to_flex": "+1m0s0ms"
+  }
 }
 ```
 
@@ -26,5 +50,114 @@ adb shell dumpsys deviceidle
 
 **Output:**
 ```
-adb: no devices/emulators found
+  Flags:
+    com.android.server.deviceidle.remove_idle_location=true
+    com.android.server.deviceidle.stop_power_save_temp_whitelist_broadcast=false
+
+  Settings:
+    flex_time_short=+1m0s0ms
+    light_after_inactive_to=+4m0s0ms
+    light_idle_to=+5m0s0ms
+    light_idle_to_initial_flex=+1m0s0ms
+    light_max_idle_to_flex=+15m0s0ms
+    light_idle_factor=2.0
+    light_idle_increase_linearly=true
+    light_idle_linear_increase_factor_ms=300000
+    light_idle_flex_linear_increase_factor_ms=60000
+    light_max_idle_to=+30m0s0ms
+    light_idle_maintenance_min_budget=+1m0s0ms
+    light_idle_maintenance_max_budget=+5m0s0ms
+    min_light_maintenance_time=+5s0ms
+    min_deep_maintenance_time=+30s0ms
+    inactive_to=+15s0ms
+    sensing_to=+15s0ms
+    locating_to=+15s0ms
+    location_accuracy=20.0m
+    motion_inactive_to=+30s0ms
+    motion_inactive_to_flex=+1m0s0ms
+    idle_after_inactive_to=+15s0ms
+    idle_pending_to=+5m0s0ms
+    max_idle_pending_to=+10m0s0ms
+    idle_pending_factor=2.0
+    quick_doze_delay_to=+1m0s0ms
+    idle_to=+1h0m0s0ms
+    max_idle_to=+6h0m0s0ms
+    idle_factor=2.0
+    min_time_to_alarm=+1h0m0s0ms
+    max_temp_app_allowlist_duration_ms=+5m0s0ms
+    mms_temp_app_allowlist_duration_ms=+1m0s0ms
+    sms_temp_app_allowlist_duration_ms=+20s0ms
+    notification_allowlist_duration_ms=+30s0ms
+    wait_for_unlock=true
+    use_window_alarms=true
+    use_mode_manager=false
+  Whitelist (except idle) system apps:
+    com.android.providers.calendar
+    com.android.providers.downloads
+    com.google.android.apps.safetyhub
+    com.android.vending
+    com.android.cellbroadcastreceiver
+    com.google.android.rkpdapp
+    com.google.android.gms
+    com.android.proxyhandler
+    com.android.imsserviceentitlement
+    com.android.shell
+    com.android.emergency
+    com.google.android.cellbroadcastreceiver
+    com.android.providers.contacts
+    com.android.devicelockcontroller
+  Whitelist system apps:
+    com.android.providers.calendar
+    com.android.providers.downloads
+    com.google.android.apps.safetyhub
+    com.android.cellbroadcastreceiver
+    com.google.android.rkpdapp
+    com.google.android.gms
+    com.android.shell
+    com.android.emergency
+    com.google.android.cellbroadcastreceiver
+    com.android.devicelockcontroller
+  Whitelist (except idle) all app ids:
+    2000
+    10102
+    10104
+    10105
+    10110
+    10119
+    10149
+    10153
+    10156
+    10200
+    10201
+    10202
+    10219
+    10226
+  Whitelist all app ids:
+    2000
+    10104
+    10105
+    10110
+    10156
+    10200
+    10201
+    10202
+    10219
+    10226
+  mLightEnabled=true  mDeepEnabled=true
+  mForceIdle=false
+  mUseMotionSensor=true mMotionSensor=null
+  mScreenOn=true
+  mScreenLocked=false
+  mNetworkConnected=false
+  mCharging=false
+  activeEmergencyCall=false
+  mMotionActive=false
+  mNotMoving=false
+  mMotionListener.activatedTimeElapsed=0
+  mLastMotionEventElapsed=0
+  0 stationary listeners registered
+  Location prefetching disabled
+  mState=ACTIVE mLightState=ACTIVE
+  mInactiveTimeout=+15s0ms
+  mIsDesktopClosedState=false
 ```

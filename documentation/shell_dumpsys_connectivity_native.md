@@ -1,19 +1,17 @@
-# `adbjson shell wm size`
+# `adbjson shell dumpsys connectivity_native`
 
 ## adbjson
 
 **Command:**
 ```bash
-adbjson shell wm size
+adbjson shell dumpsys connectivity_native
 ```
 
 **Output:**
 ```json
 {
   "status": 0,
-  "output": {
-    "physical": "1080x2424"
-  }
+  "output": ""
 }
 ```
 
@@ -23,10 +21,10 @@ adbjson shell wm size
 
 **Command:**
 ```bash
-adb shell wm size
+adb shell dumpsys connectivity_native
 ```
 
 **Output:**
 ```
-Physical size: 1080x2424
+
 ```

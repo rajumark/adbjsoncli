@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -euo pipefail
+set -u
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 DOC_DIR="$ROOT_DIR/documentation"
@@ -18,12 +18,12 @@ generate_doc() {
 
   # shellcheck disable=SC2086
   local json_output
-  json_output=$("$BIN" $adb_cmd 2>&1 || true)
+  json_output=$(timeout 30 "$BIN" $adb_cmd 2>&1 || true)
 
   local raw_output=""
   if [ -n "$ADB" ]; then
     # shellcheck disable=SC2086
-    raw_output=$("$ADB" $adb_cmd 2>&1 || true)
+    raw_output=$(timeout 30 "$ADB" $adb_cmd 2>&1 || true)
   else
     raw_output="adb not found in PATH"
   fi

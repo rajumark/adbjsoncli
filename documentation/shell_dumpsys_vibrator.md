@@ -1,10 +1,10 @@
-# `adbjson shell wm size`
+# `adbjson shell dumpsys vibrator`
 
 ## adbjson
 
 **Command:**
 ```bash
-adbjson shell wm size
+adbjson shell dumpsys vibrator
 ```
 
 **Output:**
@@ -12,7 +12,7 @@ adbjson shell wm size
 {
   "status": 0,
   "output": {
-    "physical": "1080x2424"
+    "Can't find service": "vibrator"
   }
 }
 ```
@@ -23,10 +23,10 @@ adbjson shell wm size
 
 **Command:**
 ```bash
-adb shell wm size
+adb shell dumpsys vibrator
 ```
 
 **Output:**
 ```
-Physical size: 1080x2424
+Can't find service: vibrator
 ```

@@ -1,10 +1,10 @@
-# `adbjson shell wm size`
+# `adbjson shell dumpsys media`
 
 ## adbjson
 
 **Command:**
 ```bash
-adbjson shell wm size
+adbjson shell dumpsys media
 ```
 
 **Output:**
@@ -12,7 +12,7 @@ adbjson shell wm size
 {
   "status": 0,
   "output": {
-    "physical": "1080x2424"
+    "Can't find service": "media"
   }
 }
 ```
@@ -23,10 +23,10 @@ adbjson shell wm size
 
 **Command:**
 ```bash
-adb shell wm size
+adb shell dumpsys media
 ```
 
 **Output:**
 ```
-Physical size: 1080x2424
+Can't find service: media
 ```

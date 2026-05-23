@@ -10,8 +10,16 @@ adbjson shell dumpsys diskstats
 **Output:**
 ```json
 {
-  "status": 1,
-  "output": "exit status 1"
+  "status": 0,
+  "output": {
+    "cache_free": "1210680K / 6082144K total = 19% free",
+    "data_free": "1210680K / 6082144K total = 19% free",
+    "disk_write_speed_kbps": "14998",
+    "file_based_encryption": "true",
+    "latency": "0ms [512B Data Write]",
+    "metadata_free": "9588K / 11248K total = 85% free",
+    "system_free": "0K / 580644K total = 0% free"
+  }
 }
 ```
 
@@ -26,5 +34,11 @@ adb shell dumpsys diskstats
 
 **Output:**
 ```
-adb: no devices/emulators found
+Latency: 0ms [512B Data Write]
+Recent Disk Write Speed (kB/s) = 14998
+Data-Free: 1210680K / 6082144K total = 19% free
+Cache-Free: 1210680K / 6082144K total = 19% free
+System-Free: 0K / 580644K total = 0% free
+Metadata-Free: 9588K / 11248K total = 85% free
+File-based Encryption: true
 ```
